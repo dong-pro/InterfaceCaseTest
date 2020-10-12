@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>baseService测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>baseService测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2020-04-02 22:17:32</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.803375</p>
+<p class='attribute'><strong>Status:</strong> Pass 3 Failure 1</p>
+
+<p class='description'>用例执行情况：</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='failClass'>
+    <td>test01_企业数据接入_01用户推送.UserPush</td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',3)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>test01_A01_用户推送_必填参数</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: 629Y7WXN2
+{"userName":"深圳市海上良品网络有限公司","userType":"02","userId":"59130731629Y7WXN2J","capitalNum":"2976ca2060df46a9cde4d7d19f6be83d","productType":"10","registeredState":"0","registeredProvince":"110000","registeredCity":"110000","registeredAddress":"123456","businessTerm":"2019-12-20","businessScope":"123","businessLicenseUrl":"111url","enterpriseSize":"10","industry":"A","businessContactPhone":"010-12345678","registeredCapital":"1亿","legalPersonName":"王亚东","legalPersonIdtype":"0","legalPersonNo":"370782199301225535","legalPersonPhone":"18910711949","legalPersonPhotoPositiveUrl":"positiveUrl","legalPersonPhotoVersoUrl":"versoUrl","legalPersonCertificatesDueDate":"2021-08-20","enterpriseAccountNumber":"4132465531564123","enterpriseAccountOpenBank":"招商银行","openLicensePhotoUrl":"openLicensePhotoUrl","operatorName":"wyd","operatorCertificateType":"0","operatorIdNumber":"370782199301225535","operatorIdPhotoFrontUrl":"https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=4b1e0ff44da98226accc2375ebebd264/faf2b2119313b07e6a5add8902d7912396dd8c48.jpg","operatorIdPhotoReverseUrl":"https://baike.baidu.com/pic/%E5%9B%BE%E7%89%87/372416/0/94cad1c8a786c9179e80a80cc23d70cf3bc7570080cc23d70cf3bc75700?fr=lemma&amp;ct=single#aid=0&amp;pic=faf2b2119313b07e6a5add8902d7912396dd8c48","operatorHoldsIdPhotoUrl":"https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=4b1e0ff44da98226accc2375ebebd264/faf2b2119313b07e6a5add8902d7912396dd8c48.jpg","operatorCertificateExpriationDate":"2021-08-20","operatorPhone":"15222893650","authorizationLetterUrl":"https://baike.baidu.com/pic/%E5%9B%BE%E7%89%87/372416/0/94cad1c8a786c9179e80a80cc23d70cf3bc7570080cc23d70cf3bc75700?fr=lemma&amp;ct=single#aid=0&amp;pic=faf2b2119313b07e6a5add8902d7912396dd8c48","appId":"HZJG3840567557114490804640498450","qualificationUrl":"https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=4b1e0ff44da98226accc2375ebebd264/faf2b2119313b07e6a5add8902d7912396dd8c48.jpg","qualificationName":"资质证明","qualificationDate":"2022-09-22"}
+b'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'
+x61kT%2BNogGNIgCPH7Ky7m2vTfnSPnjWaGpqH9hlNq3okiscWRoHrs3fgE2x3mpkF05zLTO88cwKM6429JI%2BUKjy5M6lN6pgRmAn0EBxL25qaz2xnnkEn7o6t0PQumBHjClJjeXFzVRHU%2BroezYSkP0kX9f%2BTGwy12hX9Gryy5oZKt%2BMXpSrHrzdjXQ4JV3ncdeGqbjF7XvrEw3YHcrF7nXEjU6N4oHaRbeT5NdqapaL9K1b94Hu3kEzrVBUZ8pB4DXbc5XmqoGSMKNAQ3thklg2S29xPXgo5tdcCX4oep7ZkG2fsIdlKQ/rhMYG4YG9gApzKK4kDkzhts//4F3Disoi9EAd1NMlgHlseamSlLRAzp9wwXylmEu9Z3jCLos/t%2BhHsfsy9xD77TD2eogV%2BtGZblUSKHlPj2E%2B49pcfusHtgkRtAwpi58VV5AhbTd69oNppIgPLlqbXmmciCjgpch7LU%2BHx%2B/JMTUOPw1EdnUi%2B5CyystnFnTKhBmuei8BpyeRXvfSLeCfJCyEVl0RZ6PnZkfrc5ETZ6tmOOGYToVBrhzSf9Grt4NWHDchjSwd8Jpl9UMPWiFnB6MRbXJpUi3Cf3Ky6hnhnUzoi9TbkH%2Bds8ZgBftXpqD/zmo396nm9awV75YxMqfa7kutkX8BI6qSSrFkMxtlqdhPdj9LHmfHPTl28oXYo6xRQg8jpKG9U6A5vcdsRqQ6iZ81oXd%2B4hIFcMVE/YY2IFtHqEHOnbY9bN3gf2AR0BptXv7M62xjIeaHGCdvu4ZwRxKPxvQuXj0dCf9gJ77Dj0fx8twfTJvZtLl6058JGUC9oUEO4YHAtpPZULWhcHUiQiI7k5YcE79oXJFG5flzq1ncowy9u//OfonRZwlCsj%2BIlZLvE4GjDf1dY4T7WwCOOQwQZ3XEhZnQd%2BlfklPJggF8YN52s2IOCXo%2B7QaR7k1tS2i/t60riHjOMxn0GppOR2APKr/nFc9gQ1upAA6wedP1trtGL15795DLWL5drzW46CmR7lvzvISJxGve%2BK9x/0TCQ8QvUTn6bxXWK2kwkBgbZ7RhJcwPoehKa4NJOK1J6TM%2B/Ss3J40r/jgaiO9qxt/jyKbrlR2wiLCMrzKEJ7n3f9gAwHOCrCdpFQxbpYzwU/VXseqJdDFuBxFlTBF0LRL2WkA0Np1iL3l949rHYH5171r7v3j1xxs4mX%2BjdjZKDVQEQNvgaziBIPDd4NW288S/W6K9dM8VnnddPmWdI2By3zhzZOVO1QLMc8IMBbQFl27AJ2Xz0cTYmDxiQgUkprauqe7dmQleaDGFL4W%2BXqWzOQukD9VSYYc9FFnh2MInzQMFVulGqYgZegYBs7UirvY1tQo4e7kqkfSr2fB4uGOtw/VoHfMvdRylvY1K09Ii15O3uXu5noH9e1tmlfjfbXIMStk1iuWrnczpAN5SJlCGFHcBh0eVV1rfKJELvglNJbIsI1nFn%2BOykIdLfDQqpcIt9OFBDbuh2ThhjvOs3k4Y3d976ZJFYN9TRF8EluF2HLGWtkXHe45IKDbfpRC4c5rg0vgYIBveo5yGw9Tr4QnmBpOE/7AYwa75xBKej5nKvteANQetocfO63w08tgDIrslQ%2BBeL8t9vdrn3xplkQvjPxKarOV2HV2WLH85izFXEP7rkQiW9OlDtL67f4fwj%2BUDeBl2dKk80BgG/0abntYOZcXZNgkl2xNbB43fz6Mf0xuJLEOfRisg2jZ9o6nXVLY9gox79sogZqdaeZH6i19Gsg3WZbOFOzMiBGWYm6RgqV94sLsovQP5oZHWxUMzCBSLaTCjMLFnHejwbO/twNJalI5ideOn39YvnpzkGvsz23UvDIHheYdsEbPVrK5mGx65GAlJJSDz3jH9OJbpefpRSerxHZ0vEBE/xUTAF0rBqqyhKJn%2BcNC6HnCIyOZykBV%2BTWWyEUsGyGmAUbBuRjFzuIT24PTypR6qTjGzXSJdQ2BvEUc4Q7QME5eSNKRZTBegoJXNZCtfKVW50FPcgElUMbAl3BviI9nojZjolWazQm7Y94waXOtsesKs1XKbJ5E2EHFQQFa6WgjQVQxof6gYuCbeQs8BMNl4NUj3x7DKskddhMMxC/JMd7XUg09hy2TJcjxiVJtVbEoq4REDU58ISWxxE8gAe3MX0F74qF8zikP7ibYKmbEQuKjVOcVYQBFHEQN7F6AoQY73Rtw1gXLURaBhWBL7wtKp15Z2u3eH0NUf4%2BuQVL4tICkIcJazuCiDb3ZcErKR/zYUXyn08RXQuoIJ2xo3dpbdU3AEkrRpjqaMocFZcPVokXgMpV39WMrePQrntTOdk/xhMgvJ6fn4TtUfkWr7oVBIkopZnwjig26LI3v/6/4GmqICyUyXN1h3h9QTEd/Jpypwx4kbvy3WpztFTNc7MG8gTSLHPaOtfXoufyy%2BJ/2t/vJg%2Br1anxjEGO9j1P3jS9E8ebcSQCP8QdFNO/C5iGkzUZ/1sUde09AosGwTG52Ey4biF7HxcNuBDWrVxiGh8bBDanf1sNdW47y5c2y7EIzR1DRbQ9dwkNaMWsPHlHwdkWiwAVPCrbk/cTheFbuHpZwbX72N40oLaZlNzmy5wcCyC35AOCXCSwkJJN2cJwlQ0GQ6Ga9AF2V8jWjMpI1CYAsdbKpVUALkr9M3STaGtxycriFDX%2BzT2x7T%2BWJgc1C0knKqWBAsQHN7bJPlY2ys70v7C6%2BGEx2rz2a5C/ChpkCZjboYBnBmZZ97j/Ov1iypI3fclBcdz%2BKyBkKv/6GC%2Bdd/Hs/eVTd3hE9O42ZmX6VA%2B%2B2Jyu6nvglAbMVBoUrJrSkEsIqHVCh2UAtXAn/Vynn2m7p1AXkG3gvYYpTJrqbTq91eVvgm/A1eO%2Bwb7
+&lt;Response [200]&gt;
+用户推送_返回数据：{'code': '40011100', 'message': '企业名称或企业社会信用代码有误'}
+Traceback (most recent call last):
+  File "/Users/wangyadong/InterfaceCaseTest/test_case/test01_企业数据接入_01用户推送.py", line 42, in test01_A01_用户推送_必填参数
+    self.assertIn('成功', res['message'])
+AssertionError: '成功' not found in '企业名称或企业社会信用代码有误'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_pass</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: userpush_test02
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test03_pass</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: userpush_test03
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>test02_企业数据接入_02单据推送.BillPush</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',1)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: test02
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
